@@ -1,0 +1,18 @@
+{
+  "name": "Simple-MVC",
+  "main": "http:://localhost:8000",
+  "description": "Simple PHP MVC from scratch with NW.js under PHP_CodeSniffer.",
+  "version": "0.1.0",
+  "keywords": [ "mvc", "node-webkit" ],
+  "window": {
+    "title": "Simple-MVC",
+    "icon": "../public/assets/images/linux.ico",
+    "toolbar": true,
+    "width": 800,
+    "height": 500,
+    "min_width": 400,
+    "min_height": 200,
+    "max_width": 800,
+    "max_height": 600
+  }
+}

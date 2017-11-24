@@ -1,0 +1,23 @@
+{# View/DB/index.html.twig #}
+{% extends 'layout.html.twig' %}
+
+{% block title %}Index{% endblock %}
+
+{% block body %}
+    <!-- Table start -->
+    <section>
+        <div class="container">
+            {% if tables %}
+                <h1>Tables in your {{ dbName }} database</h1>
+                {% for table in tables %}
+                    <p>{% for name in table %} {{ name }} {% endfor %}</p>
+                {% endfor %}
+                <br>
+            {% else %}
+                <h2>No database found with this name.</h2>
+            {% endif %}
+            <a href="/" class="btn">Back to /</a>
+        </div>
+    </section>
+    <!-- Table end -->
+{% endblock %}

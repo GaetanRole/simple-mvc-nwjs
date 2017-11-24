@@ -1,0 +1,21 @@
+{
+    "name": "Simple-MVC",
+    "description": "Simple PHP MVC from scratch with NW.js under PHP_CodeSniffer.",
+    "authors": [
+        {
+            "name": "Gaëtan Role-Dubruille",
+            "email": "gaetan@wildcodeschool.fr"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "nikic/fast-route": "^1.2",
+        "twig/twig": "^2.4",
+        "squizlabs/php_codesniffer": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        }
+    }
+}

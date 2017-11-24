@@ -1,0 +1,31 @@
+{# View/layout.html.twig #}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="A simple MVC example, working with components and NW.js">
+    <meta name="keywords" content="mvc, nwjs">
+    <meta name="author" content="Gaëtan Role">
+    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+
+    <title>SimpleMVC - {% block title %}{% endblock %}</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ asset('/css/styles.min.css') }}">
+    {% block stylesheets %}{% endblock %}
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('/images/linux.ico') }}">
+</head>
+<body>
+<header>
+    {% block header %}{% endblock %}
+</header>
+{% block body %}{% endblock %}
+<footer>
+    {% block footer %}{% endblock %}
+</footer>
+{% block javascripts %}{% endblock %}
+</body>
+</html>

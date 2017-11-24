@@ -1,0 +1,5 @@
+/*!
+ * Author : Gaëtan Role
+ * Project : Simple MVC + NW.js
+ * Minified styles.css
+ */body,html{height:100%}.btn,.container,h1{text-align:center}.btn,body{font-weight:400;vertical-align:middle}html{display:table;margin:auto;font-family:sans-serif;line-height:1.15;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;-ms-overflow-style:scrollbar;-webkit-tap-highlight-color:transparent}body{font-size:1rem;line-height:1.5;color:#FFF;background-color:#212529;display:table-cell}h1{text-transform:uppercase;color:#8fbbff}.container{margin-bottom:100px}.btn{display:inline-block;text-decoration:none;white-space:nowrap;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;padding:.375rem .75rem;font-size:.8rem;border-radius:.25rem;transition:background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;color:#fff;background-color:#7cb6ff;border:1px solid #17a2b8;cursor:pointer}.btn:hover{color:#fff;background-color:#5da4ff;border-color:#117a8b}
