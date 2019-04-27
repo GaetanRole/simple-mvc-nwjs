@@ -1,29 +1,24 @@
 <?php
+
+namespace App\Controller;
+
+use App\Model\DBEntity;
+use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Error\SyntaxError;
+
 /**
  * Manage DB entity with its CRUD.
- *
- * @category PHP_7.1
- * @package  Controller
- * @author   Gaëtan Role-Dubruille <gaetan@wildcodeschool.fr>
- */
-namespace Controller;
-
-use Model\DBEntity;
-
-/**
- * Class DBController.
- *
- * @category PHP_7.1
- * @package  Controller
- * @author   Gaëtan Role-Dubruille <gaetan@wildcodeschool.fr>
+ * @author   Gaëtan Role-Dubruille <gaetan.role@gmail.com>
  */
 class DBController extends AbstractController
 {
     /**
-     * @param   string $databaseName
-     * @return  string
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
      */
-    public function indexAction($databaseName)
+    public function indexAction(string $databaseName): string
     {
         $dbManager = new DBEntity($databaseName);
         $tables = $dbManager ? $dbManager->showTables() : null;
@@ -37,10 +32,11 @@ class DBController extends AbstractController
     }
 
     /**
-     * @param int $id show entity by id
-     * @return string
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
      */
-    public function showAction($id)
+    public function showAction(string $id): string
     {
         return $this->_twig->render(
             'DBEntity/show.html.twig',
@@ -49,10 +45,11 @@ class DBController extends AbstractController
     }
 
     /**
-     * @param int $id edit entity by id
-     * @return string
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
      */
-    public function editAction($id)
+    public function editAction(string $id): string
     {
         return $this->_twig->render(
             'DBEntity/edit.html.twig',
@@ -61,9 +58,11 @@ class DBController extends AbstractController
     }
 
     /**
-     * @return string
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
      */
-    public function addAction()
+    public function addAction(): string
     {
         return $this->_twig->render(
             'DBEntity/add.html.twig',

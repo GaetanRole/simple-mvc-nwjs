@@ -1,8 +1,9 @@
 <?php
 
-namespace Model;
+namespace App\Model;
 
-use \PDO;
+use PDO;
+use PDOException;
 
 /**
  * Connexion class
@@ -37,7 +38,7 @@ class Connexion
      * @var string
      * @see __construct
      */
-    private $type = "mysql";
+    private $type = 'mysql';
 
     /**
      * @access private
@@ -51,7 +52,7 @@ class Connexion
      * @var string
      * @see __construct
      */
-    private $dbname;
+    private $dbName;
 
     /**
      * @access private
@@ -70,37 +71,37 @@ class Connexion
     private $dbh;
 
     /**
-     * @param string $dbname
      * @access private
      */
-    private function __construct($dbname)
+    private function __construct(string $dbName)
     {
         try {
             $this->dbh = new PDO(
-                $this->type.':host='.$this->host.'; dbname='.$dbname,
+                $this->type.':host='.$this->host.'; dbname='.$dbName,
                 $this->username,
                 $this->password,
                 array(PDO::ATTR_PERSISTENT => true)
             );
-            $req = "SET NAMES UTF8";
-            $this->dbname = $dbname;
-            $result = $this->dbh->prepare($req);
-            $result->execute();
+
+            $this->dbName = $dbName;
+            $this->dbh->exec('SET NAMES UTF8');
         }
-        catch (\PDOException $e) {
+        catch (PDOException $e) {
             include_once 'Exception.php';
             die();
         }
     }
 
-    public static function getInstance($dbname)
+    public static function getInstance($dbName): Connexion
     {
-        if (!self::$instance instanceof self)
-            self::$instance = new self($dbname);
+        if (!self::$instance instanceof self) {
+            self::$instance = new self($dbName);
+        }
+
         return self::$instance;
     }
 
-    public function getDbh()
+    public function getDbh(): PDO
     {
         return $this->dbh;
     }

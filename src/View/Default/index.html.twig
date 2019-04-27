@@ -4,12 +4,12 @@
 {% block title %}Index{% endblock %}
 
 {% block body %}
-    <!-- Choose start -->
     <section>
         <div class="container">
             <h1>Choose an existing database</h1>
             <form id="form" onsubmit="changeFormAction()">
                 <div>
+                    <label for="databaseName">Select your db</label>
                     <select id="databaseName" name="databaseName" title="Select your database">
                         {% for db in dbList %}
                             <option value="{{ db }}">{{ db }}</option>
@@ -20,14 +20,13 @@
             </form>
         </div>
     </section>
-    <!-- Choose end -->
 {% endblock %}
 
 {% block javascripts %}
     <script>
         function changeFormAction() {
-            var form = document.getElementById("form");
-            var dbName = document.getElementById("databaseName").value;
+            let form = document.getElementById("form");
+            let dbName = document.getElementById("databaseName").value;
             if (!dbName || dbName === "") return;
             form.action = "/showTables/" + dbName;
             form.submit();

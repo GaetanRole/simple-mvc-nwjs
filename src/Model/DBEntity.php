@@ -1,75 +1,46 @@
 <?php
-/**
- * DB entity with repository methods.
- *
- * @category PHP_7.1
- * @package  Model
- * @author   Gaëtan Role-Dubruille <gaetan@wildcodeschool.fr>
- */
 
-namespace Model;
+namespace App\Model;
 
-use Model\Connexion;
+use PDO;
 
 /**
- * Class DBEntity.
- *
- * @category PHP
- * @package  Model
- * @author   Gaëtan Role-Dubruille <gaetan@wildcodeschool.fr>
+ * @author   Gaëtan Role-Dubruille <gaetan.role@gmail.com>
  */
 class DBEntity
 {
-
+    /**
+     * @var PDO
+     */
     private $_conn;
 
-    /**
-     * @param string $dbname connect with dbname
-     */
-    public function __construct($dbname)
+    public function __construct(string $dbName)
     {
-        $db = Connexion::getInstance($dbname);
+        $db = Connexion::getInstance($dbName);
         $this->_conn = $db->getDbh();
     }
 
-    /**
-     * @return array $tables show tables and return it
-     */
-    public function showTables()
+    public function showTables(): array
     {
-        $tables = $this->_conn->query('SHOW TABLES', \PDO::FETCH_ASSOC)->fetchAll();
-        return $tables;
+        return $this->_conn->query('SHOW TABLES', PDO::FETCH_ASSOC)->fetchAll();
     }
 
-    /**
-     * @param int $id select table by id
-     */
-    public function selectTableById($id)
+    public function selectTableById(int $id): void
     {
         //TODO : Implements SQL SELECT BY ID request
     }
 
-    /**
-     * @param int $id delete table by id
-     */
-    public function deleteTable($id)
+    public function deleteTable(int $id): void
     {
         //TODO : Implements SQL DELETE request
     }
 
-    /**
-     * @param array $data
-     */
-    public function insertTable($data)
+    public function insertTable(int $data): void
     {
         //TODO : Implements SQL INSERT request
     }
 
-    /**
-     * @param int   $id
-     * @param array $data
-     */
-    public function updateTable($id, $data)
+    public function updateTable(int $id, array $data): void
     {
         //TODO : Implements SQL UPDATE request
     }

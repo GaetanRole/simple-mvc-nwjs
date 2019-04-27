@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
+## Install vendor and run PHP built-in server
 composer install
-cd public/
-php -S localhost:8000
+php -S localhost:8000 -t public/

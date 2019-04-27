@@ -1,25 +1,19 @@
 <?php
-/**
- * Parent controller with twig loader.
- *
- * @category PHP_7.1
- * @package  AbstractController
- * @author   Gaëtan Role-Dubruille <gaetan@wildcodeschool.fr>
- */
-namespace Controller;
+
+namespace App\Controller;
 
 use Twig_Loader_Filesystem;
 use Twig_Environment;
 
 /**
- * Class AbstractController.
- *
- * @category PHP
- * @package  AbstractController
- * @author   Gaëtan Role-Dubruille <gaetan@wildcodeschool.fr>
+ * @author   Gaëtan Role-Dubruille <gaetan.role@gmail.com>
  */
 class AbstractController
 {
+
+    /**
+     * @var Twig_Environment
+     */
     protected $_twig;
 
     public function __construct()
@@ -29,9 +23,9 @@ class AbstractController
         $this->_twig = new Twig_Environment($loader, ['cache' => false, 'debug' => APP_DEV]);
         $this->_twig->addFunction(
             new \Twig_SimpleFunction(
-                'asset', function ($asset) {
-                    return sprintf(APP_ASSET . '%s', ltrim($asset, '/'));
-                }
+                'asset', static function ($asset) {
+                return sprintf(APP_ASSET . '%s', ltrim($asset, '/'));
+            }
             )
         );
         $this->_twig->addExtension(new \Twig_Extension_Debug());
