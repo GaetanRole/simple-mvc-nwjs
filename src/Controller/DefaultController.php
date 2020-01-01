@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controller;
 
 use PDO;
@@ -8,7 +10,7 @@ use PDOException;
 /**
  * @author   Gaëtan Role-Dubruille <gaetan.role@gmail.com>
  */
-class DefaultController extends AbstractController
+final class DefaultController extends AbstractController
 {
     public function indexAction(): string
     {
